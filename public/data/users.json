@@ -1,0 +1,20 @@
+[
+  {
+    "id":1,
+    "name":"Leanne Graham",
+    "username":"Bret",
+    "email":"lgraham@unac.edu.pe"
+  },
+  {
+    "id": 2,
+    "name": "Guillermo Cabana",
+    "username": "gcabana",
+    "email": "gcabana@unac.edu.pe"
+  },
+  {
+    "id": 3,
+    "name": "Fernando Mendoza",
+    "username": "fmendoza",
+    "email": "fmendoza@unac.edu.pe"
+  }
+]
