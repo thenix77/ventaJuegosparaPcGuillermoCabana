@@ -1,8 +1,8 @@
 import React, {  Fragment } from 'react'
 import {  NavLink, Outlet, useLocation, useSearchParams } from 'react-router-dom'
-import Alert from '../components/Main/Alert'
-import ctrlDataUsers from '../controllers/ctrlDataUsers.ctrl'
-import { IUser } from '../models/users.model'
+import Alert from '../../components/Main/Alert'
+import ctrlDataUsers from '../../controllers/ctrlDataUsers.ctrl'
+import { IUser } from '../../models/users.model'
 
 interface Props  {}
 

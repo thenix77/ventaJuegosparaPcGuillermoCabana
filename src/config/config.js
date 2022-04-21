@@ -1,3 +1,3 @@
-export const config = {
-  serverApi:'https://www.freetogame.com/api/games'
+export const Server = {
+  serverApi:'https://free-to-play-games-database.p.rapidapi.com/api/games'
 }

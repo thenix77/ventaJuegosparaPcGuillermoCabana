@@ -23,6 +23,7 @@ export default class Layout extends Component<Props, State> {
               <NavLink  className={ ({isActive})=> isActive ? 'nav-item nav-link active' : 'nav-item nav-link'  }
                         to='/' >home</NavLink>
               <NavLink to='/users' className="nav-item nav-link ">Users</NavLink>
+              <NavLink to='/games' className="nav-item nav-link ">Games</NavLink>
               <NavLink to='/about' className="nav-item nav-link ">about</NavLink>
             </div>
           </div>

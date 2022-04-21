@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import Alert from '../components/Main/Alert'
-import ctrlDataUsers from '../controllers/ctrlDataUsers.ctrl'
+import Alert from '../../components/Main/Alert'
+import ctrlDataUsers from '../../controllers/ctrlDataUsers.ctrl'
 
 
 
