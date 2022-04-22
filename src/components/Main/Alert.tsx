@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 type Props = {
-  error:string|null
+  error:any
 }
 
 type State = {}

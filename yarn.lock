@@ -7096,10 +7096,10 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
-"react-query@^3.35.0":
-  "integrity" "sha512-mRBJdpELLV+snzyXDsXM5ZEXM+HYt05L7st6ihSXr3nHX+4ULFr30mDjsziZvx0oF5dhlSDB8aMdvG6Ah4Bukg=="
-  "resolved" "https://registry.npmjs.org/react-query/-/react-query-3.35.0.tgz"
-  "version" "3.35.0"
+"react-query@^3.37.0":
+  "integrity" "sha512-VRSAe+Dq0hbQgKilovdTG4hr4+lHUFGo7pQYZQMX/b6yvN81eTgab0MejnnTVlw3vyBVyuokKdCtmfJ0xdubTw=="
+  "resolved" "https://registry.npmjs.org/react-query/-/react-query-3.37.0.tgz"
+  "version" "3.37.0"
   dependencies:
     "@babel/runtime" "^7.5.5"
     "broadcast-channel" "^3.4.1"
