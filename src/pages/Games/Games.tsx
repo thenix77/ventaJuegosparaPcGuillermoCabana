@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
-import { Link } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import Alert from '../../components/Main/Alert'
 import { getDataGames } from '../../controllers/ctrlDataGames.ctrl'
 import { IGame } from '../../models/game.model'
@@ -68,7 +68,12 @@ const lstGames = ()=>{
                             </p>
                             <div>
                               <Link to="#" className="btn btn-outline-primary btn-block mb-2"><i className="fa-solid fa-cart-shopping"></i> agregar al carrito</Link>
-                              <button className="btn btn-outline-success btn-block mb-2"><i className="fa-solid fa-gamepad"></i> descripcion</button>
+                              <Link to={game.id.toString()}
+                                    className="btn btn-block mb-2 btn-outline-success "
+                                    style={{color: queryClient.getQueryData(["games",game.id.toString()]) ? "purple" :'primary' }}
+                              >
+                                <i className="fa-solid fa-gamepad"></i> descripcion
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -104,7 +109,7 @@ const lstGames = ()=>{
           <div className='h2 text-center'>
             { isLoading  && <i className="fa-solid fa-spinner fa-spin"></i> }
             { isFetching && <i className="fa-solid fa-spinner-third fa-spin"></i> }
-            Lista de Juegos para Pc
+            Lista de Juegos para Pc <Outlet />
           </div>
         </div>
       </div>

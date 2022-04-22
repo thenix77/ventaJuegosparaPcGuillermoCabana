@@ -1,3 +1,4 @@
 export const Server = {
-  serverApi:'https://free-to-play-games-database.p.rapidapi.com/api/games'
+  serverApiGames:'https://free-to-play-games-database.p.rapidapi.com/api/games',
+  serverApiGame:'https://free-to-play-games-database.p.rapidapi.com/api/game'
 }

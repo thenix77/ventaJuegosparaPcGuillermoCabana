@@ -7,7 +7,7 @@ import axios from 'axios'
 
   export const getDataGames = async()=>{
 
-    const { data  } = await axios.get(Server.serverApi,{
+    const { data  } = await axios.get(Server.serverApiGames,{
                             //method: 'GET',
                             //url: Server.serverApi,
                             headers: {
@@ -23,15 +23,17 @@ import axios from 'axios'
 
   export const  getDataGamesxId = async (id:string)=> {
 
-    return await axios.request({
-                            method: 'GET',
-                            url: Server.serverApi,
-                            params: { id: id },
-                            headers: {
-                              'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
-                              'X-RapidAPI-Key': '1a2f61ec75msh4dbcd5486786637p11479djsn26ac796a5176'
-                            }
-                          })
+    const { data } = await axios.get(Server.serverApiGame,{
+                                    //method: 'GET',
+                                    //url: Server.serverApiGame,
+                                    params: { id },
+                                    headers: {
+                                      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
+                                      'X-RapidAPI-Key': '1a2f61ec75msh4dbcd5486786637p11479djsn26ac796a5176'
+                                    }
+                                  })
+
+    return data
 
   }
 

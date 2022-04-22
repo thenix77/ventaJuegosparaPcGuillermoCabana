@@ -6,6 +6,7 @@ import Games from './pages/Games/Games'
 import Home from './pages/Home'
 import User from './pages/users/User'
 import Users from './pages/Games/Users'
+import Game from './pages/Games/Game'
 
 interface Props {}
 
@@ -20,9 +21,8 @@ export default class App extends Component<Props, State> {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />}/>
-            <Route path='games' element={<Games />}>
-              <Route path=':id' element={<div>hello</div> } />
-            </Route>
+            <Route path='games' element={<Games />} />
+            <Route path='games/:id' element={<Game /> } />
             <Route path='users' element={<Users />}>
               <Route index element={<div>Seleccione un usuario</div>}/>
               <Route path=':id' element={<User />}/>
