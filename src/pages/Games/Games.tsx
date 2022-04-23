@@ -59,7 +59,7 @@ const lstGames = ()=>{
 
 
                     games.map((game:IGame , n:number)=>
-                        <div className="card m-5" style={{width: '18rem' }} key={'game-'+ n.toString()}>
+                        <div className="card m-1" style={{width: '18rem' }} key={'game-'+ n.toString()}>
                           <img className="card-img-top" src={game.thumbnail} alt={game.title} />
                           <div className="card-body">
                             <h5 className="card-title">{game.title}</h5>
@@ -114,7 +114,7 @@ const lstGames = ()=>{
         </div>
       </div>
 
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap  justify-content-center">
 
             { lstGames() }
 

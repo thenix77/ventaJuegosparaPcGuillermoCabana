@@ -11,7 +11,7 @@ export default class Alert extends Component<Props, State> {
     return (
     this.props.error &&
     <div className="alert alert-danger" role={'alert'}>
-      {this.props.error}
+      {this.props.error ?? ''}
     </div>
     )
   }

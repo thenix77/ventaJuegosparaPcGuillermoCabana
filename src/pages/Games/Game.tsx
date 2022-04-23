@@ -23,6 +23,10 @@ export default function Game() {
       retryDelay: 5000 // 5seg= 5*1000  //tiempo entre cada reintento
     })
 
+    const handleReturn = ()=>{
+      navigate(-1)
+    }
+
 
   return (
     <>
@@ -39,12 +43,16 @@ export default function Game() {
             {  game.description}
           </p>
           <p className="lead">
+            <button className='btn btn-outline-danger btn-sm mr-1 ' onClick={handleReturn}><i className="fa-solid fa-hand-point-left"></i> return </button>
             <a className="btn btn-outline-info btn-sm" href={ game.game_url} role="button">Link Page</a>
           </p>
         </div>
       }
       {
         isLoading && <i className="fa-solid fa-atom fa-spin"></i>
+      }
+      {
+       isFetching && <i className="fa-solid fa-atom fa-spin"></i>
       }
     </>
 
