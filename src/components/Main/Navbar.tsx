@@ -1,47 +1,47 @@
 import React, { Fragment } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import CartWidget from './CartWidget'
 
 export default function Navbar() {
   return (
     <Fragment>
-      <nav className='navbar navbar-expand-lg navbar-dark bg-secondary '>
-        <Link to="#" className="navbar-brand">
-          <img src="/images/brand.jpg" width={'30px'} alt="" />
-          Tienda Ventas Juegos
-        </Link>
-        <button className='navbar-toggler' type='button' data-toggle='collapse'
-                data-target='navbarNav'
-        >
-          <span className='navbar-toggler-icon'></span>
-        </button>
-        <div className="collapse navbar-collapse" id='navbarNav'>
-          <div className="navbar-nav">
-
-            <li className="nav-item">
-              <NavLink  className={ ({isActive})=> isActive ? 'nav-item nav-link active' : 'nav-item nav-link'  }
-              to='/home' >home</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to='/home/users' className="nav-item nav-link ">Users</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to='/' className="nav-item nav-link ">Games</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to='/home/about' className="nav-item nav-link ">about</NavLink>
-            </li>
-            <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" >
-                Categoria
-              </NavLink>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><Link className="dropdown-item" to="#">Action</Link></li>
-                <li><Link className="dropdown-item" to="#">Aventura</Link></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="#">Fighter</Link></li>
-              </ul>
-            </li>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div className="container-fluid">
+          <Link className="navbar-brand" to="#">
+            <img src="/images/brand.jpg"  alt="" width="30" height="24" className="d-inline-block align-text-top" />
+            {' '}Tienda VideoJuegos
+          </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="d-flex w-100 justify-content-between" >
+            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to="/">Games</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/home/users">usuarios</NavLink>
+              </li>
+              <li className="nav-item dropdown">
+                <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categorias
+                </NavLink>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><NavLink className="dropdown-item" to="#">Acción</NavLink></li>
+                  <li><NavLink className="dropdown-item" to="#">Aventura</NavLink></li>
+                  <li><NavLink className="dropdown-item" to="#">Pelea</NavLink></li>
+                </ul>
+              </li>
+            </ul>
           </div>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <CartWidget />
+            </li>
+          </ul>
+          </div>
+
         </div>
       </nav>
     </Fragment>

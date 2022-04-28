@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
+import ItemListContainer from './Main/ItemListContainer'
 import Navbar from './Main/Navbar'
 
 interface Props {}
@@ -13,6 +14,7 @@ export default class Layout extends Component<Props, State> {
     return (
       <main>
         <Navbar />
+        <ItemListContainer greeting='Bienvenido' />
         <section className='mt-3'>
           <Outlet />
         </section>
