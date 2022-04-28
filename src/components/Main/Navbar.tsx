@@ -16,22 +16,31 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id='navbarNav'>
           <div className="navbar-nav">
-            <NavLink  className={ ({isActive})=> isActive ? 'nav-item nav-link active' : 'nav-item nav-link'  }
-                      to='/home' >home</NavLink>
-            <NavLink to='/home/users' className="nav-item nav-link ">Users</NavLink>
-            <NavLink to='/' className="nav-item nav-link ">Games</NavLink>
-            <NavLink to='/home/about' className="nav-item nav-link ">about</NavLink>
-            <NavLink className="nav-item dropdown" to='#'>
-              <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+            <li className="nav-item">
+              <NavLink  className={ ({isActive})=> isActive ? 'nav-item nav-link active' : 'nav-item nav-link'  }
+              to='/home' >home</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to='/home/users' className="nav-item nav-link ">Users</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to='/' className="nav-item nav-link ">Games</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to='/home/about' className="nav-item nav-link ">about</NavLink>
+            </li>
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" >
                 Categoria
-              </Link>
+              </NavLink>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><Link className="dropdown-item" to="#">Action</Link></li>
                 <li><Link className="dropdown-item" to="#">Aventura</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="#">Todos</Link></li>
+                <li><Link className="dropdown-item" to="#">Fighter</Link></li>
               </ul>
-            </NavLink>
+            </li>
           </div>
         </div>
       </nav>
