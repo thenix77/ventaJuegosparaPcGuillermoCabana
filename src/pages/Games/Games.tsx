@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useQuery, useQueryClient } from 'react-query'
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { Link,  Outlet } from 'react-router-dom'
 import Alert from '../../components/Main/Alert'
 import { getDataGames } from '../../controllers/ctrlDataGames.ctrl'
 import { IGame } from '../../models/game.model'
@@ -56,9 +56,8 @@ const { data:games ,
 const lstGames = ()=>{
                   if(games)
                   return(
-
-
-                    games.map((game:IGame , n:number)=>
+                    games.slice(0,60)
+                        .map((game:IGame , n:number)=>
                         <div className="card m-1" style={{width: '18rem' }} key={'game-'+ n.toString()}>
                           <img className="card-img-top" src={game.thumbnail} alt={game.title} />
                           <div className="card-body">

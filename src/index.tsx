@@ -14,10 +14,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-    <App />
-    <ReactQueryDevtools />
-  </BrowserRouter>
+     <BrowserRouter>
+        <App />
+        <ReactQueryDevtools />
+    </BrowserRouter>
   </QueryClientProvider>
 
 );
