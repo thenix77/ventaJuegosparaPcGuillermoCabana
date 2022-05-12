@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getDataGamesxId } from '../../controllers/ctrlDataGames.ctrl'
+import { HookGamexId } from '../../Hooks/Users/Game.hook'
 
 export default function Game() {
 
@@ -11,17 +12,7 @@ export default function Game() {
   const id = params.id?? '0'
 
   const { data:game ,
-    isLoading ,
-    isError,
-    isFetching //cuando se recarga al cache
-  }
-    = useQuery(["games", id],()=> getDataGamesxId(id),{
-     // refetchInterval:3000, //valida si la informacion es correcta
-      //refetchOnWindowFocus:false //no refresca cuando cambio ventana
-      staleTime: 3600000, //1h = 1000*60*60 //entiende cuanto tiempo estan los datos actualizados
-      retry:2, //cantidad de intentos al servidor
-      retryDelay: 5000 // 5seg= 5*1000  //tiempo entre cada reintento
-    })
+    isLoading , isError, isFetching } = HookGamexId(id)
 
     const handleReturn = ()=>{
       navigate(-1)

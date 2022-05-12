@@ -1,57 +1,36 @@
-import React from 'react'
-import { useQuery, useQueryClient } from 'react-query'
+
+import { useState } from 'react'
+import { useQueryClient } from 'react-query'
 import { Link,  Outlet } from 'react-router-dom'
 import Alert from '../../components/Main/Alert'
-import { getDataGames } from '../../controllers/ctrlDataGames.ctrl'
+import ModalCart from '../../components/Main/ModalCard'
+import { HookGames } from '../../Hooks/Users/Game.hook'
 import { IGame } from '../../models/game.model'
 
 export default  function Games() {
 
+  const [isModal, setIsModal] = useState(false)
+  const [game, setGame] = useState(null)
+
   const queryClient = useQueryClient()
 
-const { data:games ,
-        isLoading ,
-        isError,
-        isFetching //cuando se recarga al cache
-      }
-        = useQuery(["games"], getDataGames,{
-         // refetchInterval:3000, //valida si la informacion es correcta
-          //refetchOnWindowFocus:false //no refresca cuando cambio ventana
-          staleTime: 3600000, //1h = 1000*60*60 //entiende cuanto tiempo estan los datos actualizados
-          retry:2, //cantidad de intentos al servidor
-          retryDelay: 5000 // 5seg= 5*1000  //tiempo entre cada reintento
-        })
-
-/*
-
-  const [games, setGames] = useState([])
-  const [error , setError] = useState(null)
-  const [isLoading,setisLoading] = useState(false)
-
-  useEffect(() => {
-    // declare the data fetching function
-    const fetchData = async () => {
-      setisLoading(true)
-
-      try{
-        const data = await getDataGames()
-        setGames(data)
-        setError(null)
-
-      }catch(error:any){
-        setGames([])
-        setError(error.message)
-      }
-
-      setisLoading(false)
-    }
+  const { data:games , isLoading , isError, isFetching} = HookGames()
 
 
-      fetchData()
+const handleCart = (id:number)=>{
 
-  }, [])
+   const juego = games.find((game:IGame)=> game.id === id)
 
-*/
+  if( juego){
+     setGame(juego)
+     setIsModal(true)
+  }
+
+}
+
+const handleCartClose = ()=>{
+  setIsModal(false)
+}
 
 const lstGames = ()=>{
                   if(games)
@@ -66,7 +45,9 @@ const lstGames = ()=>{
                               {game.short_description}
                             </p>
                             <div>
-                              <Link to="#" className="btn btn-outline-primary btn-block mb-2"><i className="fa-solid fa-cart-shopping"></i> agregar al carrito</Link>
+                              <Link to="#" className="btn btn-outline-primary btn-block mb-2" onClick={()=>handleCart(game.id)}>
+                                <i className="fa-solid fa-cart-shopping"></i> agregar al carrito
+                              </Link>
                               <Link to={game.id.toString()}
                                     className="btn btn-block mb-2 btn-outline-success "
                                     style={{color: queryClient.getQueryData(["games",game.id.toString()]) ? "purple" :'primary' }}
@@ -102,6 +83,8 @@ const lstGames = ()=>{
 
     <>
       { isError &&  <Alert error={'Error de Conexion con el API'} /> }
+
+      <ModalCart isModal={isModal} closed={handleCartClose} data={game}/>
 
       <div className="row justify-content-md-center mt-2">
         <div className="col-lg-5 col-10">

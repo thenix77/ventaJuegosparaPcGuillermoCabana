@@ -21,13 +21,17 @@ export default function Navbar() {
                 <NavLink className="nav-link active" aria-current="page" to="/">Games</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/home/users">usuarios</NavLink>
+                <NavLink className={({ isActive }) =>
+                  isActive ? 'bg-green-500 font-bold' : 'bg-red-500 font-thin' } to='#'>
+                    usuarios
+                  </NavLink>
               </li>
+
               <li className="nav-item dropdown">
-                <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <NavLink  className="nav-link dropdown-toggle" to="#" id="navMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categorias
                 </NavLink>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul className="dropdown-menu" aria-labelledby="navMenu">
                   <li><NavLink className="dropdown-item" to="#">Acción</NavLink></li>
                   <li><NavLink className="dropdown-item" to="#">Aventura</NavLink></li>
                   <li><NavLink className="dropdown-item" to="#">Pelea</NavLink></li>
