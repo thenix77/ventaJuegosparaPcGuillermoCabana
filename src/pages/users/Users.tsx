@@ -91,7 +91,7 @@ export default function Users() {
         (isError || isErrorEnable || isErrorInsert || isErrorUpdate )? <Alert error={error} /> :<></>
       }
       <div className="row justify-content-md-center">
-        <div className="col-5 ">
+        <div className="col-8 ">
           <div className="card w-100">
             <div className="card-header bg-secondary text-white">
               <h4 className="card-title">
@@ -114,7 +114,7 @@ export default function Users() {
                   </button>
                 </div>
               }
-              <div className="table table-bordered table-striped table-responsive">
+              <table className="table table-sm table-bordered table-striped table-responsive">
                 <thead className='bg-primary text-white'>
                   <tr>
                     <td align='center' width={'5%'}>id</td>
@@ -129,7 +129,7 @@ export default function Users() {
                     lstUsers()
                   }
                 </tbody>
-              </div>
+              </table>
             </div>
           </div>
         </div>

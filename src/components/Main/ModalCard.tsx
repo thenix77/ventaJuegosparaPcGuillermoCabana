@@ -1,3 +1,5 @@
+import { useState } from "react"
+import ctrlCart from "../../controllers/ctrlCart.ctrl"
 
 
 interface IProps{
@@ -8,8 +10,30 @@ interface IProps{
 
 export default function ModalCart(props:IProps) {
 
+  const [contador , setContador] = useState(0)
+
   const handleModalClose = ()=>{
+    setContador(0)
     props.closed(false)
+  }
+
+  const handleAdd= ()=>{
+    setContador((contador)=>contador+1 )
+  }
+
+  const handleMinus = ()=>{
+    if (contador !== 0)
+      setContador((contador)=>contador-1)
+
+  }
+
+  const handleModalAdd = async ()=>{
+
+    if(contador !== 0)
+      await ctrlCart.cartAddBuy(props.data.id, contador, new Date(), true)
+
+      setContador(0)
+      props.closed(false)
   }
 
 
@@ -26,19 +50,16 @@ export default function ModalCart(props:IProps) {
             <div className="w-50">
               <img className="card-img-top" src={props.data && props.data.thumbnail} alt={props.data && props.data.title} />
             </div>
-            <div className="w-50 h-50 d-flex text-center justify-contents-around ">
-              <button className="btn btn-outline-primary"><i className="fa-solid fa-cart-plus"></i></button>
-              <span>
-                <span>5</span>
-                <span>de 10</span>
-              </span>
-              <button className="btn btn-outline-danger"><i className="fa-solid fa-cart-shopping"></i></button>
+            <div className="w-50 h-50 d-flex justify-content-around" >
+                <button className="btn btn-outline-primary" onClick={()=>handleAdd()}><i className="fa-solid fa-cart-plus"></i></button>
+                <span className="d-flex align-items-center">{contador}</span>
+                <button className="btn btn-outline-danger"  onClick={()=>handleMinus()}><i className="fa-solid fa-cart-shopping"></i></button>
             </div>
           </div>
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" onClick={()=>handleModalClose()}>Close</button>
-          <button type="button" className="btn btn-primary">comprar</button>
+          <button type="button" className="btn btn-primary" onClick={()=>handleModalAdd()}>agregar</button>
         </div>
       </div>
     </div>

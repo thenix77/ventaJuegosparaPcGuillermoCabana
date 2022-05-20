@@ -9,45 +9,34 @@ export default function Navbar() {
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
             <img src="/images/brand.jpg"  alt="" width="30" height="24" className="d-inline-block align-text-top" />
-            {' '}Tienda VideoJuegos
-          </Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+            Tienda VideoJuegos</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon" />
           </button>
-          <div className="d-flex w-100 justify-content-between" >
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">Games</NavLink>
+                <NavLink className={({isActive})=> isActive ?"nav-link active":'nav-link'} to="/">Games</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={({ isActive }) =>
-                  isActive ? 'bg-green-500 font-bold' : 'bg-red-500 font-thin' } to='#'>
-                    usuarios
-                  </NavLink>
+                <NavLink className={({isActive})=> isActive ?"nav-link active":'nav-link'} to="/home/users">usuarios</NavLink>
               </li>
-
-              <li className="nav-item dropdown">
-                <NavLink  className="nav-link dropdown-toggle" to="#" id="navMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categorias
-                </NavLink>
-                <ul className="dropdown-menu" aria-labelledby="navMenu">
-                  <li><NavLink className="dropdown-item" to="#">Acción</NavLink></li>
-                  <li><NavLink className="dropdown-item" to="#">Aventura</NavLink></li>
-                  <li><NavLink className="dropdown-item" to="#">Pelea</NavLink></li>
-                </ul>
+             {/* <li className="nav-item">
+                <NavLink className={({isActive})=> isActive ?"nav-link active":'nav-link'} to="#">Pricing</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({isActive})=> isActive ?"nav-link active":'nav-link'} to='#'>Disabled</NavLink>
+  </li>*/}
+            </ul>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <NavLink className={({isActive})=> isActive ?"nav-link active":'nav-link'} to='#'><i className="fa-solid fa-cart-shopping"></i> </NavLink>
               </li>
             </ul>
           </div>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <CartWidget />
-            </li>
-          </ul>
-          </div>
-
         </div>
       </nav>
+
     </Fragment>
   )
 }

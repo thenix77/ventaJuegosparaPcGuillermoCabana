@@ -26,9 +26,10 @@ export default class App extends Component<Props, State> {
             <Route  index element={ <Games /> }/>
             <Route path=':id' element={ <Game />} />
 
-            <Route path='home' element={<RequireAuth>
+            <Route path='home' element={//<RequireAuth>
                                             <Outlet />
-                                        </RequireAuth>}>
+                                        /*</RequireAuth>*/
+                                        }>
               <Route index element={<Home />}/>
 
               <Route path='users' element={ <Users /> }>

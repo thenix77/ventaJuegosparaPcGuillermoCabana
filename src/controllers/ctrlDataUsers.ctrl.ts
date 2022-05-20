@@ -2,7 +2,7 @@
 import { IUser } from "../models/users.model"
 
 import db from "../config/firebase"
-import { addDoc, collection ,  doc,  getDoc,  getDocs, query, updateDoc, where } from 'firebase/firestore'
+import { addDoc, collection ,  doc,  getDoc,  getDocs,  updateDoc } from 'firebase/firestore'
 
 
  export const getDataUsers = async() =>{
