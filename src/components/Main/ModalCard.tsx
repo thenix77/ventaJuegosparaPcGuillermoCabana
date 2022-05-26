@@ -1,5 +1,5 @@
-import { useState } from "react"
-import ctrlCart from "../../controllers/ctrlCart.ctrl"
+import React, { useState } from "react"
+import { CartContext } from "../../provider/CartContext"
 
 
 interface IProps{
@@ -11,6 +11,7 @@ interface IProps{
 export default function ModalCart(props:IProps) {
 
   const [contador , setContador] = useState(0)
+  const { addProducts } = React.useContext(CartContext)
 
   const handleModalClose = ()=>{
     setContador(0)
@@ -29,11 +30,12 @@ export default function ModalCart(props:IProps) {
 
   const handleModalAdd = async ()=>{
 
-    if(contador !== 0)
-      await ctrlCart.cartAddBuy(props.data.id, contador, new Date(), true)
-
+    if(contador !== 0){
       setContador(0)
+      addProducts!(props.data.id, contador)
+
       props.closed(false)
+    }
   }
 
 

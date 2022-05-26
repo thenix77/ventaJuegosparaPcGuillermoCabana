@@ -4,8 +4,9 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App'
+import CartProvider from './provider/CartProvider'
+import reportWebVitals from './reportWebVitals'
 
 const queryClient = new QueryClient()
 
@@ -13,13 +14,14 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <QueryClientProvider client={queryClient}>
-     <BrowserRouter>
+  <BrowserRouter>
+  {/*  <CartProvider>  */}
+      <QueryClientProvider client={queryClient}>
         <App />
         <ReactQueryDevtools />
-    </BrowserRouter>
-  </QueryClientProvider>
-
+      </QueryClientProvider>
+    {/*</CartProvider>*/}
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

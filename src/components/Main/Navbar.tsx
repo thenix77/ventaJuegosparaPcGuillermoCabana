@@ -1,8 +1,13 @@
 import React, { Fragment } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import CartWidget from './CartWidget'
+import { CartContext } from '../../provider/CartContext'
 
 export default function Navbar() {
+
+  const { Products } = React.useContext(CartContext)
+
+  console.log(Products?.length);
+
   return (
     <Fragment>
       <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -30,7 +35,12 @@ export default function Navbar() {
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className={({isActive})=> isActive ?"nav-link active":'nav-link'} to='#'><i className="fa-solid fa-cart-shopping"></i> </NavLink>
+                <NavLink className={({isActive})=> isActive ?"nav-link active position-relative":'nav-link position-relative'} to='#'>
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    1
+                  </span>
+                </NavLink>
               </li>
             </ul>
           </div>
