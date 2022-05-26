@@ -15,12 +15,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-  {/*  <CartProvider>  */}
+    <CartProvider >
       <QueryClientProvider client={queryClient}>
         <App />
         <ReactQueryDevtools />
       </QueryClientProvider>
-    {/*</CartProvider>*/}
+    </CartProvider>
   </BrowserRouter>
 );
 

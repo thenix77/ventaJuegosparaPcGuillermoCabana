@@ -1,16 +1,16 @@
 import React, { useMemo, useState } from 'react'
 import { CartContext } from './CartContext'
 
-interface IProps {
+export interface ICart {
 
     id:string
     cantidad:number
     date?: Date
-    Products?:Function
+    //Products?:Function
 
 }
 
-export default function CartProvider(props:IProps) {
+export default function CartProvider(props:any) {
 
   const [id, setId] = useState('')
   const [cantidad, setCantidad] = useState(0)
@@ -18,9 +18,11 @@ export default function CartProvider(props:IProps) {
 
 
 
-  const handleUpdate = (id:string, cantidad:number)=>{
+  const handleUpdate = (id:any, cantidad:any)=>{
 
-    const newProduct = Object.assign({...products}, {id, cantidad})
+    const product:any = {id, cantidad , date: new Date()}
+
+    const newProduct:any = Object.assign(products,product) //products.concat(product)
 
     setProducts(newProduct)
 
