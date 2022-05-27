@@ -22,8 +22,8 @@ export default function CartProvider(props:any) {
 
     const product:any = {id, cantidad , date: new Date()}
 
-    const newProduct:any = Object.assign(products,product) //products.concat(product)
-
+    const newProduct:any = Object.assign(products,product)
+    const x:any = products.concat(product)
     setProducts(newProduct)
 
     return products
